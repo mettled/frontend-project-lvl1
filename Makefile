@@ -7,3 +7,5 @@ publish:
 
 myStart: publish
 	brain-games
+lint:
+	npx eslint
