@@ -7,5 +7,5 @@ parser: babel-eslint
 extends:
   - 'airbnb-base'
 
- rules:
+rules:
   no-console: 0         
