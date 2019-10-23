@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import askName from '..';
+import { askName, greating } from '../helpers';
 
-console.log('Welcome to the Brain Games!');
+greating();
 askName();

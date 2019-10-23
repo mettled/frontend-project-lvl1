@@ -1,8 +1,10 @@
-import readlineSync from 'readline-sync';
+import { askName, greating, overwriteGmeEven } from './helpers';
 
-const askName = () => {
-  const actual = readlineSync.question('May i have your name? ');
-  console.log(`Hello, ${actual}!`);
+const = () => {
+  ;
 };
 
-export default askName;
+
+export {
+  askName, greating, overwriteGmeEven,
+};
