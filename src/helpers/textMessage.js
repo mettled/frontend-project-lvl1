@@ -1,15 +1,9 @@
 import readlineSync from 'readline-sync';
+import { QUESTION_NAME, ANSWER_USER } from './constants';
 
-const askName = () => readlineSync.question('May i have your name? ');
-
-const askNumber = () => readlineSync.question('Your answer: ');
-
-const greating = () => 'Welcome to the Brain Games!';
-
-const overwriteGmeEven = () => {
-  console.log('Answer "yes" if the number is even, otherwise answer "no"');
-};
+const askName = () => readlineSync.question(`${QUESTION_NAME}`);
+const askNumber = () => readlineSync.question(`${ANSWER_USER}`);
 
 export {
-  askName, greating, overwriteGmeEven, askNumber,
+  askName, askNumber,
 };

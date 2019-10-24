@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { askName, greating } from '../helpers';
+import { askName } from '../helpers';
 
-greating();
 askName();
