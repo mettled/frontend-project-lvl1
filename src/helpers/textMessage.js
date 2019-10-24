@@ -10,4 +10,6 @@ const overwriteGmeEven = () => {
   console.log('Answer "yes" if the number is even, otherwise answer "no"');
 };
 
-export { askName, greating, overwriteGmeEven, askNumber };
+export {
+  askName, greating, overwriteGmeEven, askNumber,
+};

@@ -8,4 +8,6 @@ extends:
   - 'airbnb-base'
 
 rules:
-  no-console: 0         
+  no-console: 0
+  no-unused-vars: 1
+  spaced-comment: 1

@@ -1,9 +1,9 @@
 import { askName, greating, overwriteGmeEven } from './helpers';
 
-const = () => {
+/*const = () => {
   ;
 };
-
+*/
 
 export {
   askName, greating, overwriteGmeEven,

@@ -4,8 +4,8 @@ const QUESTION_NAME = 'May i have your name ?';
 const GREATING = 'Hello, ';
 const QUESTION = 'Question: ';
 const ANSWER_USER = 'Your answer: ';
-const WRONG_ANSWER = ` is wrong answer :(. Correct answer was /n Let/'s try again, `;
-const CORRECT_ANSWER = `Correct!!!`;
+const WRONG_ANSWER = " is wrong answer :(. Correct answer was /n Let/'s try again, ";
+const CORRECT_ANSWER = 'Correct!!!';
 const GAME_OVER = 'Congratilations, ';
 
 export {

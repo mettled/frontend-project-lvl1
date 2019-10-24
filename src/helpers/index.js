@@ -2,9 +2,10 @@ import {
   greating, overwriteGmeEven, askName, askNumber,
 } from './textMessage';
 import rundomFunc from './myRandom';
-import { START_GAME, DISCRIPTION, QUESTION_NAME, GREATING, 
-        QUESTION, ANSWER_USER, WRONG_ANSWER,CORRECT_ANSWER, GAME_OVER,
-} from '../helpers/constants';
+import {
+  START_GAME, DISCRIPTION, QUESTION_NAME, GREATING,
+  QUESTION, ANSWER_USER, WRONG_ANSWER, CORRECT_ANSWER, GAME_OVER,
+} from './constants';
 
 const gameEven = (numberRounds, rndFunc) => {
   const iter = (acc, number) => {
@@ -17,7 +18,7 @@ const gameEven = (numberRounds, rndFunc) => {
     const askAnswer = askNumber();
     if (correctAnswer === askAnswer) {
       console.log(CORRECT_ANSWER);
-    }; 
+    }
     return correctAnswer === askAnswer ? iter(acc + 1, number) : WRONG_ANSWER;
   };
   return iter(numberRounds, rndFunc);
