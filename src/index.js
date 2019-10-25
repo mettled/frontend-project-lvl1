@@ -19,7 +19,7 @@ const askAndCheckQuestion = (numberRounds, func) => {
     const msg = checkAnswer ? CORRECT_ANSWER
       : `'${usrAnswer}' ${WRONG_ANSWER} '${round.answer}'`;
     console.log(msg);
-    return checkAnswer ? iter(acc + 1, func) : 'lose' ;
+    return checkAnswer ? iter(acc + 1, func) : 'lose';
   };
   return iter(0, func);
 };

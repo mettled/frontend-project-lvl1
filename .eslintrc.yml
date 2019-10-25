@@ -12,3 +12,4 @@ rules:
   no-unused-vars: 1
   spaced-comment: 1
   import/prefer-default-export: 1 
+  eqeqeq: 1
