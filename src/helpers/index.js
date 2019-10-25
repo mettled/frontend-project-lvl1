@@ -1,8 +1,9 @@
 import {
-  askName, askNumber,
+  askName, askAnswer,
 } from './textMessage';
 import rundomFunc from './myRandom';
+import { gameFunctionCulc, gameFunctionEven } from './gamesFunction';
 
 export {
-  askName, askNumber, rundomFunc,
+  askName, askAnswer, rundomFunc, gameFunctionCulc, gameFunctionEven,
 };

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { gameEven } from '..';
 import { COUNT_QUESTION } from '../helpers/constants';
-import { gameFunctionEven } from '../helpers';
+import { gameFunctionCulc } from '../helpers';
 
-gameEven(COUNT_QUESTION, gameFunctionEven);
+gameEven(COUNT_QUESTION, gameFunctionCulc);

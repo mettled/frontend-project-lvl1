@@ -1,5 +1,5 @@
 import {
-  askName, askNumber, rundomFunc,
+  askName, askAnswer,
 } from './helpers';
 
 import {
@@ -7,38 +7,29 @@ import {
   GREATING, WRONG_ANSWER, GAME_OVER_WRONG, GAME_OVER_SUCCESS,
 } from './helpers/constants';
 
-const askAndCheckQuestion = (numberRounds, rndFunc) => {
+const askAndCheckQuestion = (numberRounds, func) => {
   const iter = (acc, number) => {
     if (acc === COUNT_QUESTION) { // check correct count question
       return 'win';
     }
-    const actualNumber = number();
-    const correctAnswer = actualNumber % 2 === 0 ? 'yes' : 'no';
-
-    console.log(`${QUESTION}: ${actualNumber}`);
-
-    const askAnswer = askNumber();
-    const checkAnswer = correctAnswer === askAnswer; // check answer user
-    if (checkAnswer) {
-      console.log(CORRECT_ANSWER);
-    }
-    return checkAnswer ? iter(acc + 1, number) : askAnswer;
+    const round = func();
+    console.log(`${QUESTION}: ${round.question}`);
+    const usrAnswer = askAnswer();
+    const checkAnswer = round.answer == usrAnswer; // check answer user
+    const msg = checkAnswer ? CORRECT_ANSWER
+      : `'${usrAnswer}' ${WRONG_ANSWER} '${round.answer}'`;
+    console.log(msg);
+    return checkAnswer ? iter(acc + 1, func) : 'lose' ;
   };
-  return iter(0, rndFunc);
+  return iter(0, func);
 };
 
-const gameEven = (numberRouds = COUNT_QUESTION, rfunc = rundomFunc) => {
+const gameEven = (numberRounds, gameFunc) => {
   console.log(`${START_GAME}`);
   console.log(`${DISCRIPTION}.\n`);
   const nameUser = askName();
   console.log(`${GREATING}${nameUser} !\n`);
-  const resualtGame = askAndCheckQuestion(numberRouds, rfunc);
-  if (resualtGame === 'yes') {
-    console.log(`'yes' ${WRONG_ANSWER} 'no'`);
-  }
-  if (resualtGame === 'no') {
-    console.log(`'no' ${WRONG_ANSWER} 'yes'`);
-  }
+  const resualtGame = askAndCheckQuestion(numberRounds, gameFunc);
   const resultMessage = resualtGame === 'win' ? `${GAME_OVER_SUCCESS}${nameUser}!`
     : `${GAME_OVER_WRONG}${nameUser}!`;
   console.log(resultMessage);
