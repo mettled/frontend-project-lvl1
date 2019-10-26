@@ -1,4 +1,4 @@
-import rundomFunc from './myRandom';
+import { rundomFunc, gcfFunc } from '.';
 
 const gameFunctionEven = (rndFunc = rundomFunc) => {
   const actualNumber = rndFunc();
@@ -28,6 +28,16 @@ const gameFunctionCulc = (rndFunc = rundomFunc) => {
   return result;
 };
 
+const gameFunctionGCF = (rndFunc = rundomFunc, gcFactorFunc = gcfFunc) => {
+  const number1 = rndFunc();
+  const number2 = rndFunc();
+  const gcf = gcFactorFunc(number1, number2);
+  return {
+    question: `${number1} ${number2}`,
+    answer: gcf,
+  };
+};
+
 export {
-  gameFunctionEven, gameFunctionCulc,
+  gameFunctionEven, gameFunctionCulc, gameFunctionGCF,
 };

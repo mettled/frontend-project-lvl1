@@ -3,9 +3,9 @@ import {
 } from './helpers';
 
 import {
-  START_GAME, DISCRIPTION, COUNT_QUESTION, QUESTION, CORRECT_ANSWER,
+  START_GAME, COUNT_QUESTION, QUESTION, CORRECT_ANSWER,
   GREATING, WRONG_ANSWER, GAME_OVER_WRONG, GAME_OVER_SUCCESS,
-} from './helpers/constants';
+} from './constants';
 
 const askAndCheckQuestion = (numberRounds, func) => {
   const iter = (acc, number) => {
@@ -24,9 +24,7 @@ const askAndCheckQuestion = (numberRounds, func) => {
   return iter(0, func);
 };
 
-const gameEven = (numberRounds, gameFunc) => {
-  console.log(`${START_GAME}`);
-  console.log(`${DISCRIPTION}.\n`);
+const gameStart = (numberRounds, gameFunc) => {
   const nameUser = askName();
   console.log(`${GREATING}${nameUser} !\n`);
   const resualtGame = askAndCheckQuestion(numberRounds, gameFunc);
@@ -36,5 +34,5 @@ const gameEven = (numberRounds, gameFunc) => {
 };
 
 export {
-  gameEven,
+  gameStart,
 };

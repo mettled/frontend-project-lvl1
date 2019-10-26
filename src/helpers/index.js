@@ -1,9 +1,9 @@
 import {
   askName, askAnswer,
 } from './textMessage';
-import rundomFunc from './myRandom';
-import { gameFunctionCulc, gameFunctionEven } from './gamesFunction';
+import { rundomFunc, gcfFunc } from './mathFunction';
+import { gameFunctionCulc, gameFunctionEven, gameFunctionGCF } from './gamesFunction';
 
 export {
-  askName, askAnswer, rundomFunc, gameFunctionCulc, gameFunctionEven,
+  askName, askAnswer, rundomFunc, gcfFunc, gameFunctionCulc, gameFunctionEven, gameFunctionGCF,
 };

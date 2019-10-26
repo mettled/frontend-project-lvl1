@@ -13,3 +13,4 @@ rules:
   spaced-comment: 1
   import/prefer-default-export: 1 
   eqeqeq: 1
+  import/no-cycle: 1
