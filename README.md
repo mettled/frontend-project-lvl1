@@ -8,3 +8,5 @@ I hope it will usefull for me.
 brain-even - https://asciinema.org/a/5nXto3oMzIq04W86p47PoQXrB
 
 brain-gcd - https://asciinema.org/a/dmsyEjSnWzSxOuIZWRbQ8FabA 
+
+brain-progression - https://asciinema.org/a/zoUsA1QVZdK4eTMPYN3tDDMlC

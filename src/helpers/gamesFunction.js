@@ -38,6 +38,26 @@ const gameFunctionGCF = (rndFunc = rundomFunc, gcFactorFunc = gcfFunc) => {
   };
 };
 
+const gameFunctionProgression = (rndFunc = rundomFunc) => {
+  const startNumber = rndFunc();
+  const diffNumber = Math.ceil(rndFunc() / 10);
+  const hiddenNumber = Math.floor(rndFunc() / 10);
+  const result = {};
+  const iter = (acc, count, nextNumber) => {
+    if (count > 9) {
+      return acc;
+    }
+    const locNextNumber = nextNumber + diffNumber;
+    const numberProgression = count === hiddenNumber ? '.' : locNextNumber;
+    acc.question = `${acc.question} ${numberProgression}`;
+    acc.answer = numberProgression === '.' ? locNextNumber : acc.answer;
+    return iter(acc, count + 1, locNextNumber);
+  };
+  result.question = startNumber;
+  result.answer = '';
+  return iter(result, 1, startNumber);
+};
+
 export {
-  gameFunctionEven, gameFunctionCulc, gameFunctionGCF,
+  gameFunctionEven, gameFunctionCulc, gameFunctionGCF, gameFunctionProgression,
 };
