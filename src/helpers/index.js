@@ -1,16 +1,8 @@
 import {
   askName, askAnswer,
 } from './textMessage';
-import { rundomFunc, gcfFunc } from './mathFunction';
-import {
-  gameFunctionCulc,
-  gameFunctionEven,
-  gameFunctionGCF,
-  gameFunctionProgression,
-  isPrime,
-} from './gamesFunction';
+import { rundomFunc, gcdFunc } from './mathFunction';
 
 export {
-  askName, askAnswer, rundomFunc, gcfFunc,
-  gameFunctionCulc, gameFunctionEven, gameFunctionGCF, gameFunctionProgression, isPrime,
+  askName, askAnswer, rundomFunc, gcdFunc,
 };

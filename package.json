@@ -2,6 +2,10 @@
   "name": "mettled_frontend_project",
   "version": "1.6.0",
   "description": "hexlet first project",
+  "keywords": [
+    "hexlet project lvl 1",
+    "brain games"            
+  ],
   "main": "dist/bin/brain-games.js",
   "files": [
     "dist"

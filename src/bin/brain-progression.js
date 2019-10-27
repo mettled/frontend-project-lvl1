@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-import { gameStart } from '..';
+import gameStart from '..';
 import { DISCRIPTION_PROG, START_GAME, COUNT_QUESTION } from '../constants';
-import { gameFunctionProgression } from '../helpers';
+import { gameProgression } from '../games';
 
 console.log(`${START_GAME}`);
 console.log(`${DISCRIPTION_PROG}.\n`);
 
-gameStart(COUNT_QUESTION, gameFunctionProgression);
+gameStart(COUNT_QUESTION, gameProgression);

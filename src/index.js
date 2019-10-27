@@ -3,12 +3,12 @@ import {
 } from './helpers';
 
 import {
-  START_GAME, COUNT_QUESTION, QUESTION, CORRECT_ANSWER,
+  COUNT_QUESTION, QUESTION, CORRECT_ANSWER,
   GREATING, WRONG_ANSWER, GAME_OVER_WRONG, GAME_OVER_SUCCESS,
 } from './constants';
 
 const askAndCheckQuestion = (numberRounds, func) => {
-  const iter = (acc, number) => {
+  const iter = (acc) => {
     if (acc === COUNT_QUESTION) { // check correct count question
       return 'win';
     }
@@ -24,15 +24,11 @@ const askAndCheckQuestion = (numberRounds, func) => {
   return iter(0, func);
 };
 
-const gameStart = (numberRounds, gameFunc) => {
+export default (numberRounds, gameFunc) => {
   const nameUser = askName();
   console.log(`${GREATING}${nameUser} !\n`);
   const resualtGame = askAndCheckQuestion(numberRounds, gameFunc);
   const resultMessage = resualtGame === 'win' ? `${GAME_OVER_SUCCESS}${nameUser}!`
     : `${GAME_OVER_WRONG}${nameUser}!`;
   console.log(resultMessage);
-};
-
-export {
-  gameStart,
 };
