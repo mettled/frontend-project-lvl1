@@ -58,6 +58,26 @@ const gameFunctionProgression = (rndFunc = rundomFunc) => {
   return iter(result, 1, startNumber);
 };
 
+const isPrime = (num = rundomFunc) => {
+  const number = num();
+  const sqrt = Math.sqrt(number);
+  const iter = (i) => {
+    if (number % i === 0) {
+      return 'no';
+    }
+    if (i > sqrt + 1) {
+      return 'yes';
+    }
+    return iter(i + 1);
+  };
+  const ans = iter(2);
+  return {
+    question: number,
+    answer: ans,
+  };
+};
+
+
 export {
-  gameFunctionEven, gameFunctionCulc, gameFunctionGCF, gameFunctionProgression,
+  gameFunctionEven, gameFunctionCulc, gameFunctionGCF, gameFunctionProgression, isPrime,
 };

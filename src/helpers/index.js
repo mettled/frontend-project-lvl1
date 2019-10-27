@@ -7,9 +7,10 @@ import {
   gameFunctionEven,
   gameFunctionGCF,
   gameFunctionProgression,
+  isPrime,
 } from './gamesFunction';
 
 export {
   askName, askAnswer, rundomFunc, gcfFunc,
-  gameFunctionCulc, gameFunctionEven, gameFunctionGCF, gameFunctionProgression,
+  gameFunctionCulc, gameFunctionEven, gameFunctionGCF, gameFunctionProgression, isPrime,
 };

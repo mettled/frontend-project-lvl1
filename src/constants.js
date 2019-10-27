@@ -3,6 +3,7 @@ const DISCRIPTION_EVEN = 'Answer "yes" if the number is even, otherwise answer "
 const DISCRIPTION_CULC = 'What is the result of the expression?';
 const DISCRIPTION_NOD = 'Find the greatest common divisor of given numbers.';
 const DISCRIPTION_PROG = 'What number is missing in the progression?';
+const DISCRIPTION_PRIME = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const QUESTION_NAME = 'May i have your name? ';
 const GREATING = 'Hello, ';
@@ -17,6 +18,6 @@ const COUNT_QUESTION = 3;
 
 export {
   START_GAME, DISCRIPTION_EVEN, DISCRIPTION_CULC, DISCRIPTION_NOD, DISCRIPTION_PROG,
-  QUESTION_NAME, GREATING, QUESTION, ANSWER_USER, WRONG_ANSWER,
+  DISCRIPTION_PRIME, QUESTION_NAME, GREATING, QUESTION, ANSWER_USER, WRONG_ANSWER,
   CORRECT_ANSWER, COUNT_QUESTION, GAME_OVER_SUCCESS, GAME_OVER_WRONG,
 };
