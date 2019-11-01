@@ -4,7 +4,7 @@
   "description": "hexlet first project",
   "keywords": [
     "hexlet project lvl 1",
-    "brain games"            
+    "brain games"
   ],
   "main": "dist/bin/brain-games.js",
   "files": [
