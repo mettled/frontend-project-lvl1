@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 import gameStart from '..';
-import { DISCRIPTION_PRIME, START_GAME, COUNT_QUESTION } from '../constants';
-import { gamePrime } from '../games';
+import { DISCRIPTION_PRIME, COUNT_QUESTION } from '../constants';
+import gamePrime from '../games/game-prime';
 
-console.log(`${START_GAME}`);
-console.log(`${DISCRIPTION_PRIME}.\n`);
-
-gameStart(COUNT_QUESTION, gamePrime);
+gameStart(COUNT_QUESTION, gamePrime, DISCRIPTION_PRIME);
