@@ -1,4 +1,4 @@
-import { rundomFunc } from '../helpers';
+import { rundomFunc } from '../helpers/mathFunction';
 
 export default (generatorNumberFunction = rundomFunc) => {
   const number = generatorNumberFunction();

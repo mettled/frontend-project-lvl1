@@ -1,10 +1,9 @@
-import {
-  askName, askAnswer,
-} from './helpers';
+import askQuestion from './helpers/getInfo';
+import print from './helpers/sendInfo';
 
 import {
-  COUNT_QUESTION, QUESTION, CORRECT_ANSWER,
-  GREATING, WRONG_ANSWER, GAME_OVER_WRONG, GAME_OVER_SUCCESS,
+  COUNT_QUESTION, QUESTION, CORRECT_ANSWER, QUESTION_NAME, ANSWER_USER,
+  GREATING, WRONG_ANSWER, GAME_OVER_WRONG, GAME_OVER_SUCCESS, START_GAME,
 } from './constants';
 
 const askAndCheckQuestion = (numberRounds, func) => {
@@ -13,22 +12,28 @@ const askAndCheckQuestion = (numberRounds, func) => {
       return 'win';
     }
     const round = func();
-    console.log(`${QUESTION}: ${round.question}`);
-    const usrAnswer = askAnswer();
+    print(`${QUESTION}: ${round.question}`);
+    const usrAnswer = askQuestion(ANSWER_USER);
     const checkAnswer = round.answer == usrAnswer; // check answer user
     const msg = checkAnswer ? CORRECT_ANSWER
       : `'${usrAnswer}' ${WRONG_ANSWER} '${round.answer}'`;
-    console.log(msg);
+    print(msg);
     return checkAnswer ? iter(acc + 1, func) : 'lose';
   };
   return iter(0, func);
 };
 
-export default (numberRounds, gameFunc) => {
-  const nameUser = askName();
-  console.log(`${GREATING}${nameUser} !\n`);
-  const resualtGame = askAndCheckQuestion(numberRounds, gameFunc);
-  const resultMessage = resualtGame === 'win' ? `${GAME_OVER_SUCCESS}${nameUser}!`
-    : `${GAME_OVER_WRONG}${nameUser}!`;
-  console.log(resultMessage);
+export default (numberRounds, gameFunc, description = '') => {
+  print(`${START_GAME}`);
+  print(`${description} \n`);
+
+  const nameUser = askQuestion(QUESTION_NAME);
+  print(`${GREATING}${nameUser} !\n`);
+
+  if (typeof gameFunc === 'function') {
+    const resualtGame = askAndCheckQuestion(numberRounds, gameFunc);
+    const resultMessage = resualtGame === 'win' ? `${GAME_OVER_SUCCESS}${nameUser}!`
+      : `${GAME_OVER_WRONG}${nameUser}!`;
+    print(resultMessage);
+  }
 };

@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 import gameStart from '..';
-import { START_GAME, DISCRIPTION_EVEN, COUNT_QUESTION } from '../constants';
-import { gameEven } from '../games';
+import { DISCRIPTION_EVEN, COUNT_QUESTION } from '../constants';
+import gameEven from '../games/game-even';
 
-console.log(`${START_GAME}`);
-console.log(`${DISCRIPTION_EVEN}.\n`);
-
-gameStart(COUNT_QUESTION, gameEven);
+gameStart(COUNT_QUESTION, gameEven, DISCRIPTION_EVEN);
