@@ -3,8 +3,10 @@ import readlineSync from 'readline-sync';
 import {
   COUNT_QUESTION, QUESTION, CORRECT_ANSWER,
   GREATING, WRONG_ANSWER, GAME_OVER_WRONG, GAME_OVER_SUCCESS,
-  ANSWER_USER, QUESTION_NAME, START_GAME,
+  ANSWER_USER, QUESTION_NAME,
 } from './constants';
+
+const START_GAME = 'Welcome to the Brain Games!';
 
 const askAndCheckQuestion = (numberRounds, func) => {
   const iter = (acc) => {

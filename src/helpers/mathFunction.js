@@ -1,12 +1,3 @@
-const rundomFunc = () => Math.floor(Math.random() * 100);
-
-const gcdFunc = (a, b) => {
-  if (b === 0) {
-    return a;
-  }
-  return gcdFunc(b, a % b);
-};
-
-export {
-  rundomFunc, gcdFunc,
-};
+export default (min = 0, max = 100) => (
+  Math.floor(Math.floor(min + Math.random() * (max + 1 - min)))
+);
