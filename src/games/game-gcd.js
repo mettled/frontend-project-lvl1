@@ -1,8 +1,7 @@
 import rundomFunc from '../helpers/mathFunction';
 import gameStart from '..';
-import { COUNT_QUESTION } from '../constants';
 
-const DISCRIPTION_NOD = 'Find the greatest common divisor of given numbers.';
+const DESCRIPTION_NOD = 'Find the greatest common divisor of given numbers.';
 
 const gcd = (a, b) => {
   if (b === 0) {
@@ -22,4 +21,4 @@ const gameGCD = (generatorNumberFunc = rundomFunc, gcdFunction = gcd) => {
   };
 };
 
-export default () => gameStart(COUNT_QUESTION, gameGCD, DISCRIPTION_NOD);
+export default () => gameStart(gameGCD, DESCRIPTION_NOD);

@@ -1,8 +1,7 @@
 import rundomFunc from '../helpers/mathFunction';
 import gameStart from '..';
-import { COUNT_QUESTION } from '../constants';
 
-const DISCRIPTION_PRIME = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const DESCRIPTION_PRIME = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const gamePrime = (generatorNumberFunction = rundomFunc) => {
   const number = generatorNumberFunction();
@@ -23,4 +22,4 @@ const gamePrime = (generatorNumberFunction = rundomFunc) => {
   };
 };
 
-export default () => gameStart(COUNT_QUESTION, gamePrime, DISCRIPTION_PRIME);
+export default () => gameStart(gamePrime, DESCRIPTION_PRIME);

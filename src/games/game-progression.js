@@ -1,17 +1,17 @@
 import rundomFunc from '../helpers/mathFunction';
 import gameStart from '..';
-import { COUNT_QUESTION } from '../constants';
 
-const DISCRIPTION_PROG = 'What number is missing in the progression?';
+const DESCRIPTION_PROG = 'What number is missing in the progression?';
+const LENGTH_PROGRESSION = 9;
 
-const gameProgression = (generatorNumberFunction = rundomFunc) => {
-  const startNumber = generatorNumberFunction();
-  const deltaNumber = Math.ceil(generatorNumberFunction() / 10);
-  const hiddenNumber = Math.floor(generatorNumberFunction() / 10);
+const gameProgression = (generatorNumber = rundomFunc) => {
+  const startNumber = generatorNumber();
+  const deltaNumber = generatorNumber(1, 10);
+  const hiddenNumber = generatorNumber(1, 10);
   const result = {};
 
   const iter = (acc, count, nextNumber) => {
-    if (count > 9) {
+    if (count > LENGTH_PROGRESSION) {
       return acc;
     }
     const locNextNumber = nextNumber + deltaNumber;
@@ -26,4 +26,4 @@ const gameProgression = (generatorNumberFunction = rundomFunc) => {
   return iter(result, 1, startNumber);
 };
 
-export default () => gameStart(COUNT_QUESTION, gameProgression, DISCRIPTION_PROG);
+export default () => gameStart(gameProgression, DESCRIPTION_PROG);
