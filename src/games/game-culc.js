@@ -3,36 +3,25 @@ import gameStart from '..';
 
 const DESCRIPTION_CULC = 'What is the result of the expression?';
 
-const gameCulc = (generatorNumberFunction = rundomFunc) => {
-  const number1 = generatorNumberFunction();
-  const number2 = generatorNumberFunction();
-  const operation = {
-    '*': (a, b) => ({
+const gameCulc = (generatorNumber = rundomFunc) => {
+  const number1 = generatorNumber();
+  const number2 = generatorNumber();
+  const operations = {
+    1: (a, b) => ({
       question: `${a} * ${b}`,
       answer: a * b,
     }),
-    '+': (a, b) => ({
+    2: (a, b) => ({
       question: `${a} + ${b}`,
       answer: a + b,
     }),
-    '-': (a, b) => ({
+    3: (a, b) => ({
       question: `${a} - ${b}`,
       answer: a - b,
     }),
   };
-  switch (true) {
-    case (number1 < 33):
-      return operation['+'](number1, number2);
-    case (number1 > 32 && number1 < 66):
-      return operation['-'](number1, number2);
-    case (number1 > 65):
-      return operation['*'](number1, number2);
-    default:
-      return {
-        question: '',
-        answer: 0,
-      };
-  }
+  const operation = generatorNumber(1, 3);
+  return operations[operation](number1, number2);
 };
 
 export default () => gameStart(gameCulc, DESCRIPTION_CULC);
