@@ -17,7 +17,7 @@ const askAndCheckQuestion = (numberRounds, func) => {
     const round = func();
     console.log(`${QUESTION}: ${round.question}`);
     const usrAnswer = readlineSync.question(`${ANSWER_USER}`);
-    const checkAnswer = round.answer == usrAnswer; // check answer user
+    const checkAnswer = String(round.answer) === String(usrAnswer); // check answer user
     const msg = checkAnswer ? CORRECT_ANSWER
       : `'${usrAnswer}' ${WRONG_ANSWER} '${round.answer}'`;
     console.log(msg);
