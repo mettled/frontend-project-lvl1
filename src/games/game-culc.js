@@ -20,7 +20,7 @@ const gameCulc = () => {
       answer: a - b,
     }),
   };
-  const operation = generatorNumber(0, Object.keys(operations).length - 1);
+  const operation = rundomGenerate(0, Object.keys(operations).length - 1);
   return operations[Object.keys(operations)[operation]](number1, number2);
 };
 
