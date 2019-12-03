@@ -1,21 +1,25 @@
-import rundomFunc from '../helpers/mathFunction';
+import rundomGenerate from '../helpers/mathFunction';
 import gameStart from '..';
 
 const DESCRIPTION_PRIME = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const gamePrime = (generatorNumberFunction = rundomFunc) => {
-  const number = generatorNumberFunction();
+const isPrime = (number) => {
   const sqrt = Math.sqrt(number);
   const iter = (i) => {
     if (number % i === 0) {
-      return 'no';
+      return false;
     }
     if (i > sqrt + 1) {
-      return 'yes';
+      return true;
     }
     return iter(i + 1);
   };
-  const answer = iter(2);
+  return iter(number);
+};
+
+const gamePrime = () => {
+  const number = rundomGenerate();
+  const answer = isPrime(number) ? 'yes' : 'no';
   return {
     question: number,
     answer,

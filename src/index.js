@@ -6,12 +6,12 @@ import {
   ANSWER_USER, QUESTION_NAME,
 } from './constants';
 
-const START_GAME = 'Welcome to the Brain Games!';
+const START_GAME_PHRASE = 'Welcome to the Brain Games!';
 const COUNT_QUESTION = 3;
 
-const askAndCheckQuestion = (numberRounds, func) => {
-  const iter = (acc) => {
-    if (acc === numberRounds) { // check correct count question
+const askAndCheckQuestion = (endGamesRounds, func) => {
+  const iter = (count) => {
+    if (count === endGamesRounds) { // check correct count question
       return 'win';
     }
     const round = func();
@@ -21,13 +21,13 @@ const askAndCheckQuestion = (numberRounds, func) => {
     const msg = checkAnswer ? CORRECT_ANSWER
       : `'${usrAnswer}' ${WRONG_ANSWER} '${round.answer}'`;
     console.log(msg);
-    return checkAnswer ? iter(acc + 1, func) : 'lose';
+    return checkAnswer ? iter(count + 1, func) : 'lose';
   };
-  return iter(0, func);
+  return iter(0);
 };
 
 export default (gameFunc, gameDescription = '') => {
-  console.log(`${START_GAME}`);
+  console.log(`${START_GAME_PHRASE}`);
   console.log(`${gameDescription}.\n`);
   const nameUser = readlineSync.question(`${QUESTION_NAME}`);
   console.log(`${GREATING}${nameUser} !\n`);
