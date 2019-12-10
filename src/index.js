@@ -1,41 +1,39 @@
 import readlineSync from 'readline-sync';
 
-import {
-  QUESTION, CORRECT_ANSWER,
-  GREATING, WRONG_ANSWER, GAME_OVER_WRONG, GAME_OVER_SUCCESS,
-  ANSWER_USER, QUESTION_NAME,
-} from './constants';
+import CONSTANTS from './constants';
 
 const START_GAME_PHRASE = 'Welcome to the Brain Games!';
 const COUNT_QUESTION = 3;
 
 const askAndCheckQuestion = (endGamesRounds, func) => {
-  const iter = (count) => {
-    if (count === endGamesRounds) { // check correct count question
+  const iter = (countRounds) => {
+    if (countRounds === endGamesRounds) {
       return 'win';
     }
     const round = func();
-    console.log(`${QUESTION}: ${round.question}`);
-    const usrAnswer = readlineSync.question(`${ANSWER_USER}`);
-    const checkAnswer = String(round.answer) === String(usrAnswer); // check answer user
-    const msg = checkAnswer ? CORRECT_ANSWER
-      : `'${usrAnswer}' ${WRONG_ANSWER} '${round.answer}'`;
+    console.log(`${CONSTANTS.QUESTION}: ${round.question}`);
+    const userAnswer = readlineSync.question(`${CONSTANTS.ANSWER_USER}`);
+    const checkAnswer = String(round.answer) === String(userAnswer);
+    const msg = checkAnswer ? CONSTANTS.CORRECT_ANSWER
+      : `'${userAnswer}' ${CONSTANTS.WRONG_ANSWER} '${round.answer}'`;
     console.log(msg);
-    return checkAnswer ? iter(count + 1, func) : 'lose';
+    return checkAnswer ? iter(countRounds + 1, func) : 'lose';
   };
   return iter(0);
 };
 
-export default (gameFunc, gameDescription = '') => {
+const makeQuiz = (gameFunc, gameDescription = '') => {
   console.log(`${START_GAME_PHRASE}`);
   console.log(`${gameDescription}.\n`);
-  const nameUser = readlineSync.question(`${QUESTION_NAME}`);
-  console.log(`${GREATING}${nameUser} !\n`);
+  const nameUser = readlineSync.question(`${CONSTANTS.QUESTION_NAME}`);
+  console.log(`${CONSTANTS.GREATING}${nameUser} !\n`);
 
   if (typeof gameFunc === 'function') {
     const resualtGame = askAndCheckQuestion(COUNT_QUESTION, gameFunc);
-    const resultMessage = resualtGame === 'win' ? `${GAME_OVER_SUCCESS}${nameUser}!`
-      : `${GAME_OVER_WRONG}${nameUser}!`;
+    const resultMessage = resualtGame === 'win' ? `${CONSTANTS.GAME_OVER_SUCCESS}${nameUser}!`
+      : `${CONSTANTS.GAME_OVER_WRONG}${nameUser}!`;
     console.log(resultMessage);
   }
 };
+
+export default makeQuiz;
