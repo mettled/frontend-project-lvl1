@@ -5,23 +5,22 @@ const DESCRIPTION_PROGRESSION = 'What number is missing in the progression?';
 const LENGTH_PROGRESSION = 10;
 
 const makeQuestionQuiz = () => {
-  const start = rundomGenerate();
-  const delta = rundomGenerate(1, LENGTH_PROGRESSION);
-  const hidden = rundomGenerate(1, LENGTH_PROGRESSION);
+  const startProgression = rundomGenerate();
+  const deltaProgression = rundomGenerate();
+  const hiddenMember = rundomGenerate(1, LENGTH_PROGRESSION);
   const result = {};
 
   const iter = (acc, countProgression) => {
     if (countProgression >= LENGTH_PROGRESSION) {
-      acc.answer = start + delta * hidden;
+      acc.answer = startProgression + deltaProgression * hiddenMember;
       return acc;
     }
-    const nextNumberProgression = countProgression === hidden ? '..' : start + delta * countProgression;
+    const nextNumberProgression = countProgression === hiddenMember
+      ? '..' : startProgression + deltaProgression * countProgression;
     acc.question = `${acc.question} ${nextNumberProgression}`;
     return iter(acc, countProgression + 1);
   };
 
-  result.question = start;
-  result.answer = '';
   return iter(result, 1);
 };
 

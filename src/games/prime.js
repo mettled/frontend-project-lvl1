@@ -14,13 +14,16 @@ const isPrime = (number) => {
     }
     return iter(i + 1);
   };
-  return iter(number);
+  return iter(2);
 };
 
 const makeQuestionQuiz = () => {
   const question = rundomGenerate();
   const answer = isPrime(question) ? 'yes' : 'no';
-  return { question, answer };
+  return {
+    question,
+    answer,
+  };
 };
 
 export default () => makeQuiz(makeQuestionQuiz, DESCRIPTION_PRIME);
