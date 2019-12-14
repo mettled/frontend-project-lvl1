@@ -10,7 +10,7 @@ const makeQuestionQuiz = () => {
   const hiddenMember = rundomGenerate(1, LENGTH_PROGRESSION);
   const result = {};
 
-  const iter = (acc, countProgression) => {
+  const iter = ({ ...acc }, countProgression) => {
     if (countProgression >= LENGTH_PROGRESSION) {
       acc.answer = startProgression + deltaProgression * hiddenMember;
       return acc;
