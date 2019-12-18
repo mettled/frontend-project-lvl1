@@ -29,8 +29,8 @@ const runGame = (gameFunc, gameDescription = '') => {
   console.log(`${CONSTANTS.GREATING}${nameUser}!\n`);
 
   if (typeof gameFunc === 'function') {
-    const resualtGame = makeQuiz(END_ROUNDS_COUNT, gameFunc);
-    const resultMessage = resualtGame === 'win' ? `${CONSTANTS.GAME_OVER_SUCCESS}${nameUser}!`
+    const resultGame = makeQuiz(END_ROUNDS_COUNT, gameFunc);
+    const resultMessage = resultGame === 'win' ? `${CONSTANTS.GAME_OVER_SUCCESS}${nameUser}!`
       : `${CONSTANTS.GAME_OVER_WRONG}${nameUser}!`;
     console.log(resultMessage);
   }
