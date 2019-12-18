@@ -7,21 +7,26 @@ const LENGTH_PROGRESSION = 10;
 const makeQuestionQuiz = () => {
   const startProgression = rundomGenerate();
   const deltaProgression = rundomGenerate();
-  const hiddenMember = rundomGenerate(1, LENGTH_PROGRESSION);
-  const result = {};
+  const hiddenProgressionIndex = rundomGenerate(1, LENGTH_PROGRESSION);
+  const answer = startProgression + deltaProgression * hiddenProgressionIndex;
 
-  const iter = ({ ...acc }, countProgression) => {
-    if (countProgression >= LENGTH_PROGRESSION) {
-      acc.answer = startProgression + deltaProgression * hiddenMember;
+  const iter = (acc, countProgression) => {
+    if (countProgression > LENGTH_PROGRESSION) {
       return acc;
     }
-    const nextNumberProgression = countProgression === hiddenMember
+    const nextMemberProgression = countProgression === hiddenProgressionIndex
       ? '..' : startProgression + deltaProgression * countProgression;
-    acc.question = `${acc.question} ${nextNumberProgression}`;
-    return iter(acc, countProgression + 1);
+    const newAcc = `${acc} ${nextMemberProgression}`;
+
+    return iter(newAcc, countProgression + 1);
   };
 
-  return iter(result, 1);
+  const question = iter('', 1);
+
+  return {
+    question,
+    answer,
+  };
 };
 
 export default () => makeQuiz(makeQuestionQuiz, DESCRIPTION_PROGRESSION);

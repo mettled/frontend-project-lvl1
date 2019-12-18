@@ -20,6 +20,7 @@ const isPrime = (number) => {
 const makeQuestionQuiz = () => {
   const question = rundomGenerate();
   const answer = isPrime(question) ? 'yes' : 'no';
+
   return {
     question,
     answer,
