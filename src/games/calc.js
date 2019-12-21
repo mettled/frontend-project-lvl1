@@ -9,8 +9,8 @@ const operations = {
 };
 
 const signs = Object.keys(operations);
-const getOperation = (operation) => operations[signs[operation]];
-const getSign = (sign) => signs[sign];
+const getOperation = (collection, operation) => collection[Object.keys(collection)[operation]];
+const getSign = (collection, sign) => Object.keys(collection)[sign];
 
 const makeQuestionQuiz = () => {
   const number1 = rundomGenerate();
@@ -18,8 +18,8 @@ const makeQuestionQuiz = () => {
   const operation = rundomGenerate(0, signs.length - 1);
 
   return {
-    question: `${number1} ${getSign(operation)} ${number2}`,
-    answer: getOperation(operation)(number1, number2),
+    question: `${number1} ${getSign(operations, operation)} ${number2}`,
+    answer: String(getOperation(operations, operation)(number1, number2)),
   };
 };
 

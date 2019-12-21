@@ -17,7 +17,7 @@ const makeQuestionQuiz = () => {
 
   return {
     question: `${number1} ${number2}`,
-    answer,
+    answer: String(answer),
   };
 };
 
