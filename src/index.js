@@ -18,7 +18,7 @@ const makeQuiz = (endRoundsCount, questionQuiz) => {
     const msg = checkAnswer ? CONSTANTS.CORRECT_ANSWER
       : `'${userAnswer}' ${CONSTANTS.WRONG_ANSWER} '${round.answer}'`;
     console.log(msg);
-    return checkAnswer ? iter(currentRoundsCount + 1) : 'lose';
+    return checkAnswer ? iter(currentRoundsCount + 1) : false;
   };
   return iter(0);
 };
