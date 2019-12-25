@@ -5,12 +5,12 @@ import CONSTANTS from './constants';
 const START_GAME_PHRASE = 'Welcome to the Brain Games!';
 const ROUNDS_COUNT = 3;
 
-const runQuiz = (endRoundsCount, questionQuiz) => {
+const runQuiz = (endRoundsCount, getQuestionQuiz) => {
   const iter = (currentRoundsCount) => {
     if (currentRoundsCount === endRoundsCount) {
       return true;
     }
-    const round = questionQuiz();
+    const round = getQuestionQuiz();
     console.log(`${CONSTANTS.QUESTION}: ${round.question}`);
     const userAnswer = readlineSync.question(`${CONSTANTS.ANSWER_USER}`);
     console.log(typeof round.answer);
