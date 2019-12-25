@@ -1,5 +1,5 @@
 import rundomGenerate from '../helpers/mathFunction';
-import makeQuiz from '..';
+import runGame from '..';
 
 const DESCRIPTION_CALC = 'What is the result of the expression?';
 const operations = {
@@ -12,7 +12,7 @@ const signs = Object.keys(operations);
 const getOperation = (collection, operator) => collection[Object.keys(collection)[operator]];
 const getSign = (collection, operator) => Object.keys(collection)[operator];
 
-const makeQuestionQuiz = () => {
+const makeQuiz = () => {
   const number1 = rundomGenerate();
   const number2 = rundomGenerate();
   const operator = rundomGenerate(0, signs.length - 1);
@@ -23,4 +23,4 @@ const makeQuestionQuiz = () => {
   };
 };
 
-export default () => makeQuiz(makeQuestionQuiz, DESCRIPTION_CALC);
+export default () => runGame(makeQuiz, DESCRIPTION_CALC);

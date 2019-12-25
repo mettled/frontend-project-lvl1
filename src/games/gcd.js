@@ -1,7 +1,7 @@
 import rundomGenerate from '../helpers/mathFunction';
-import makeQuiz from '..';
+import runGame from '..';
 
-const DESCRIPTION_GSD = 'Find the greatest common divisor of given numbers.';
+const DESCRIPTION_GCD = 'Find the greatest common divisor of given numbers.';
 
 const gcd = (a, b) => {
   if (b === 0) {
@@ -10,7 +10,7 @@ const gcd = (a, b) => {
   return gcd(b, a % b);
 };
 
-const makeQuestionQuiz = () => {
+const makeQuiz = () => {
   const number1 = rundomGenerate();
   const number2 = rundomGenerate();
   const answer = gcd(number1, number2);
@@ -21,4 +21,4 @@ const makeQuestionQuiz = () => {
   };
 };
 
-export default () => makeQuiz(makeQuestionQuiz, DESCRIPTION_GSD);
+export default () => runGame(makeQuiz, DESCRIPTION_GCD);

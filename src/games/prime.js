@@ -1,5 +1,5 @@
 import rundomGenerate from '../helpers/mathFunction';
-import makeQuiz from '..';
+import runGame from '..';
 
 const DESCRIPTION_PRIME = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
@@ -17,7 +17,7 @@ const isPrime = (number) => {
   return iter(2);
 };
 
-const makeQuestionQuiz = () => {
+const makeQuiz = () => {
   const question = rundomGenerate();
   const answer = isPrime(question) ? 'yes' : 'no';
 
@@ -27,4 +27,4 @@ const makeQuestionQuiz = () => {
   };
 };
 
-export default () => makeQuiz(makeQuestionQuiz, DESCRIPTION_PRIME);
+export default () => runGame(makeQuiz, DESCRIPTION_PRIME);

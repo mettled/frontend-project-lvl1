@@ -1,10 +1,10 @@
 import rundomGenerate from '../helpers/mathFunction';
-import makeQuiz from '..';
+import runGame from '..';
 
 const DESCRIPTION_PROGRESSION = 'What number is missing in the progression?';
 const LENGTH_PROGRESSION = 10;
 
-const makeQuestionQuiz = () => {
+const makeQuiz = () => {
   const startProgression = rundomGenerate();
   const deltaProgression = rundomGenerate();
   const hiddenProgressionIndex = rundomGenerate(1, LENGTH_PROGRESSION);
@@ -29,4 +29,4 @@ const makeQuestionQuiz = () => {
   };
 };
 
-export default () => makeQuiz(makeQuestionQuiz, DESCRIPTION_PROGRESSION);
+export default () => runGame(makeQuiz, DESCRIPTION_PROGRESSION);

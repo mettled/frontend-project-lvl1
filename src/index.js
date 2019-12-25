@@ -5,7 +5,7 @@ import CONSTANTS from './constants';
 const START_GAME_PHRASE = 'Welcome to the Brain Games!';
 const ROUNDS_COUNT = 3;
 
-const makeQuiz = (endRoundsCount, questionQuiz) => {
+const runQuiz = (endRoundsCount, questionQuiz) => {
   const iter = (currentRoundsCount) => {
     if (currentRoundsCount === endRoundsCount) {
       return true;
@@ -29,7 +29,7 @@ const runGame = (getGame, gameDescription = '') => {
   const nameUser = readlineSync.question(`${CONSTANTS.QUESTION_NAME}`);
   console.log(`${CONSTANTS.GREATING}${nameUser}!\n`);
 
-  const resultGame = makeQuiz(ROUNDS_COUNT, getGame);
+  const resultGame = runQuiz(ROUNDS_COUNT, getGame);
   const resultMessage = resultGame ? `${CONSTANTS.GAME_OVER_SUCCESS}${nameUser}!`
     : `${CONSTANTS.GAME_OVER_WRONG}${nameUser}!`;
   console.log(resultMessage);
